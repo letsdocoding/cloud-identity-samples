@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Authentication
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "User Tokens";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h2>Access Token</h2>
+
+<textarea rows="3" cols="50">@HttpContextAccessor.HttpContext.GetTokenAsync("access_token").GetAwaiter().GetResult()</textarea>
+
+
+<hr />
+<h2>Id Token</h2>
+
+<textarea rows="3" cols="50">@HttpContextAccessor.HttpContext.GetTokenAsync("id_token").GetAwaiter().GetResult()</textarea>
