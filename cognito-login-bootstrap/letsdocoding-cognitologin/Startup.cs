@@ -1,16 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using System.Threading.Tasks;
 
 namespace letsdocoding_cognitologin
 {
@@ -28,13 +24,16 @@ namespace letsdocoding_cognitologin
         {
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
+            //Add authentication
             services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
                     options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 })
+                //Add cookie
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+                // Add openid connect
                 .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
                 {
                     options.ClientId = "3g8ck87t9b9p03s7t7g86escta";
@@ -50,9 +49,10 @@ namespace letsdocoding_cognitologin
 
                     options.TokenValidationParameters = new TokenValidationParameters()
                     {
-                        NameClaimType =  "cognito:username"
+                        NameClaimType = "cognito:username"
                     };
 
+                    //
                     options.Events = new OpenIdConnectEvents()
                     {
                         OnRedirectToIdentityProviderForSignOut = context =>
@@ -96,6 +96,7 @@ namespace letsdocoding_cognitologin
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //Add Authentication
             app.UseAuthentication();
             app.UseRouting();
 
