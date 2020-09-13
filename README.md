@@ -20,8 +20,8 @@ Identity samples includes the following platforms:
 
 I did tried to cover these aspects in youtube series, although the voice is not that good (apologies), but will do its purpose. Click here to checkout the youtube series
 
-* [Why you should NOT store identities yourself | Introduction to Cloud Identities](https://www.youtube.com/watch?v=PM_ny-nWME4&list=PL3TuugVsz1mOC08d7tBqx6Py-dCG9wwd5&index=1)
-* [How to Integrate AWS Cognito with Client - END TO END Demo](https://www.youtube.com/watch?v=Gt2emUW9Mpc&list=PL3TuugVsz1mOC08d7tBqx6Py-dCG9wwd5&index=2)
+* <a href="https://www.youtube.com/watch?v=PM_ny-nWME4&list=PL3TuugVsz1mOC08d7tBqx6Py-dCG9wwd5&index=1" target="_blank">Why you should NOT store identities yourself | Introduction to Cloud Identities</a> 
+* <a href="https://www.youtube.com/watch?v=Gt2emUW9Mpc&list=PL3TuugVsz1mOC08d7tBqx6Py-dCG9wwd5&index=2" target="_blank">How to Integrate AWS Cognito with Client - END TO END Demo</a>
 * How to Integrate Azure Active Directory with Client - End to End Demo
   * Advanced Security Options in Azure Active Directory
   * How to integrate Federated Login with any social provider in your app.
