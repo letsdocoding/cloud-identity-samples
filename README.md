@@ -14,7 +14,7 @@ The purpose of these demos is to figure out all such things and get a niche work
 
 Identity samples includes the following platforms: 
 
-* [AWS Cognito](https://github.com/letsdocoding/cloud-identity-samples/tree/master/AWS-Cognito-Samples) (completed)
+* [AWS Cognito - Basic Bearer Authentication with no AWS dependencies](https://github.com/letsdocoding/cloud-identity-samples/tree/cognito-no_depdendencies/AWS-Cognito-Samples) (completed)
 * [Azure AD (Azure Active Directory  & Azure Active Directory B2C)](https://github.com/letsdocoding/cloud-identity-samples/tree/master/Azure-AD-B2C/Azure-AD-B2C) (completed)
 * Auth0
 
