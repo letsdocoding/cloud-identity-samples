@@ -36,9 +36,9 @@ namespace letsdocoding_cognitologin
                 // Add openid connect
                 .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
                 {
-                    options.ClientId = "3g8ck87t9b9p03s7t7g86escta";
-                    options.ClientSecret = "1tadusvi0fipp2j9jf147j1r9sl69nsq6h2c1dqlabfjiihbl975";
-                    options.Authority = "https://cognito-idp.us-west-2.amazonaws.com/us-west-2_2pVIDwjSK";
+                    options.ClientId = Configuration.GetSection("Identity:Cognito:ClientId").Value;
+                    options.ClientSecret = Configuration.GetSection("Identity:Cognito:ClientSecret").Value;
+                    options.Authority = Configuration.GetSection("Identity:Cognito:Authority").Value;
                     options.Scope.Add("openid");
                     options.Scope.Add("profile");
                     options.Scope.Add("email");
@@ -49,7 +49,7 @@ namespace letsdocoding_cognitologin
 
                     options.TokenValidationParameters = new TokenValidationParameters()
                     {
-                        NameClaimType = "cognito:username"
+                        NameClaimType = Configuration.GetSection("Identity:UserNameClaim").Value
                     };
 
                     //
@@ -57,7 +57,7 @@ namespace letsdocoding_cognitologin
                     {
                         OnRedirectToIdentityProviderForSignOut = context =>
                         {
-                            var logoutUri = $"https://letsdocoding-identity.auth.us-west-2.amazoncognito.com/logout?client_id=3g8ck87t9b9p03s7t7g86escta";
+                            var logoutUri = $"{Configuration.GetSection("LogoutUri").Value}/logout?client_id=3g8ck87t9b9p03s7t7g86escta";
                             logoutUri += $"&logout_uri={context.Request.Scheme}://{context.Request.Host}";
 
                             //var postLogoutUri = context.Properties.RedirectUri;
