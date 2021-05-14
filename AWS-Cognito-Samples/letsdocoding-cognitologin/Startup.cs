@@ -57,7 +57,8 @@ namespace letsdocoding_cognitologin
                     {
                         OnRedirectToIdentityProviderForSignOut = context =>
                         {
-                            var logoutUri = $"{Configuration.GetSection("LogoutUri").Value}/logout?client_id=3g8ck87t9b9p03s7t7g86escta";
+                            var logoutUri = $"{Configuration.GetSection("Identity:Cognito:LogoutUri").Value}/logout?client_id={Configuration.GetSection("Identity:Cognito:ClientId").Value}";
+
                             logoutUri += $"&logout_uri={context.Request.Scheme}://{context.Request.Host}";
 
                             //var postLogoutUri = context.Properties.RedirectUri;
