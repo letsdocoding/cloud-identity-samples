@@ -1,5 +1,3 @@
-using System;
-
 namespace letsdocoding_cognitologin.Models
 {
     public class ErrorViewModel

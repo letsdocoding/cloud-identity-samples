@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.Threading.Tasks;
+using letsdocoding_cognitologin.CognitoAccess;
 
 namespace letsdocoding_cognitologin
 {
@@ -24,6 +25,7 @@ namespace letsdocoding_cognitologin
         {
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
+            services.AddScoped<IUserHelper, UserHelper>();
             //Add authentication
             services.AddAuthentication(options =>
                 {
@@ -38,13 +40,14 @@ namespace letsdocoding_cognitologin
                 {
                     options.ClientId = Configuration.GetSection("Identity:Cognito:ClientId").Value;
                     options.ClientSecret = Configuration.GetSection("Identity:Cognito:ClientSecret").Value;
-                    options.Authority = Configuration.GetSection("Identity:Cognito:Authority").Value;
+                    options.Authority = $"{Configuration.GetSection("Identity:Cognito:Authority").Value}/{Configuration.GetSection("Identity:Cognito:PoolId").Value}";
                     options.Scope.Add("openid");
                     options.Scope.Add("profile");
                     options.Scope.Add("email");
+                    options.Scope.Add("aws.cognito.signin.user.admin");
                     options.ResponseType = "code";
                     options.Scope.Add("http://leave.letsdocoding.com/leaves.cancel");
-                    //options.Scope.Add("http://leave.letsdocoding.com/leaves.apply");
+                    options.Scope.Add("http://leave.letsdocoding.com/leaves.apply");
                     options.SaveTokens = true;
 
                     options.TokenValidationParameters = new TokenValidationParameters()

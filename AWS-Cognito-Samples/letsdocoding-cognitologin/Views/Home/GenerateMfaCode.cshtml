@@ -1,0 +1,28 @@
+﻿@model UserSecretModel
+@{
+    ViewBag.Title = "Generate MFA Code";
+}
+
+@if (Model.IsVerified)
+{
+    <h2> User MFA Code Successfully verified.</h2>
+}
+else
+{
+    <img src="@ViewBag.image" style="width: 150px; height: 150px;" />
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        <div class="row">
+            <label class="col-md-4" asp-for="UserCode"></label>
+            <input asp-for="UserCode" class="col-md-4" />
+        </div>
+
+        <div class="row">
+            <label class="col-md-4" asp-for="DeviceName"></label>
+            <input asp-for="DeviceName" class="col-md-4" />
+        </div>
+        
+        <input type="submit"/>
+    </form>
+
+}
