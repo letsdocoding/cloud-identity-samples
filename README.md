@@ -15,8 +15,8 @@ The purpose of these demos is to figure out all such things and get a niche work
 Identity samples includes the following platforms: 
 
 ### AWS Cognito
-* [AWS Cognito - Basic Bearer Authentication with no AWS dependencies](https://github.com/letsdocoding/cloud-identity-samples/tree/cognito-no_depdendencies/AWS-Cognito-Samples) (completed)
-* [AWS Cognito MFA Setup and use](https://github.com/letsdocoding/cloud-identity-samples/tree/mfa-working-demo/AWS-Cognito-Samples) (completed).
+* [AWS Cognito - Basic Bearer Authentication with no AWS dependencies](https://github.com/letsdocoding/cloud-identity-samples/tree/master/AWS-Cognito-Samples/01.%20Basic%20AWS%20Cognito%20Inegration ) (completed)
+* [AWS Cognito MFA Setup and use](https://github.com/letsdocoding/cloud-identity-samples/tree/master/AWS-Cognito-Samples/02.%20MFA%20Integration) (completed).
 * AWS Cognito User Operations (planned).
 * AWS Cognito User invitation (planned).
 
